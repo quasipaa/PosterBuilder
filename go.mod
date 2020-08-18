@@ -1,4 +1,4 @@
-module PosterGeneration
+module PosterBuilder
 
 go 1.15
 

@@ -1,4 +1,4 @@
-# PosterGeneration
+# PosterBuilder
 
 这是使用Golang编写的海报生成器,
 专门用来生成可扫描二维码进入的海报活动页.
@@ -8,15 +8,15 @@
 
 从Git仓库获取源代码并编译:
 ```bash
-git clone https://github.com/quasipaa/PosterGeneration
-cd PosterGeneration
+git clone https://github.com/quasipaa/PosterBuilder
+cd PosterBuilder
 go build
 ```
 
 编译完成之后当前目录下面会出现可执行文件:
 ```bash
-chmod +x ./PosterGeneration
-./PosterGeneration
+chmod +x ./PosterBuilder
+./PosterBuilder
 ```
 
 
@@ -25,7 +25,7 @@ chmod +x ./PosterGeneration
 可通过命名行参数启动服务器.</br>
 获取参数帮助:
 ```bash
-./PosterGeneration -h
+./PosterBuilder -h
 ```
 
 * `-a` `string` 文件缓存目录 (default "./data")</br>
@@ -34,7 +34,7 @@ chmod +x ./PosterGeneration
 
 启动示例:
 ```bash
-./PosterGeneration -a /data/AppData -d /data/databse -p 80
+./PosterBuilder -a /data/AppData -d /data/databse -p 80
 ```
 这将启动服务器并监听`0.0.0.0:80`端口.
 以`/data/AppData`作为图片文件存储目录.

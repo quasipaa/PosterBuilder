@@ -2,7 +2,7 @@ package router
 
 import (
     "github.com/kataras/iris/v12"
-    "PosterGeneration/database"
+    "PosterBuilder/database"
 )
 
 func Middleware(model *database.Model, appdata string) func(ctx iris.Context) {

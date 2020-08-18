@@ -2,9 +2,9 @@ package main
 
 import (
     "github.com/kataras/iris/v12"
-    "PosterGeneration/database"
-    "PosterGeneration/command"
-    "PosterGeneration/router"
+    "PosterBuilder/database"
+    "PosterBuilder/command"
+    "PosterBuilder/router"
 )
 
 func main() {
