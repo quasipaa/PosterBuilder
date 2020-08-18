@@ -1,0 +1,219 @@
+* {
+margin: 0;
+padding: 0;
+font-size: 14px;
+}
+
+html {
+    background-color: #eee;
+}
+
+body {
+    width: 1000px;
+    margin: 0 auto;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    padding-top: 50px;
+    position: relative;
+}
+
+.App .Header {
+    display: table;
+    width: 100%;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.App .Header button {
+    float: right;
+    margin-right: 40px;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #555;
+}
+
+.App .Header button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.App .Header .Title {
+    margin-left: 40px;
+    margin-top: 10px;
+    color: #555;
+    font-weight: bold;
+}
+
+.App .Posters {
+    margin-top: 50px;
+}
+
+.App .Posters .Unposter {
+    margin-top: 30px;
+    text-align: center;
+    color: #999;
+}
+
+.App .Posters .Nav,
+.App .Posters .Item {
+    display: flex;
+    margin: 0 40px;
+    text-align: center;
+}
+
+.App .Posters .Nav {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.App .Posters .Nav span {
+    font-weight: bold;
+    color: #999;
+    font-size: 12px;
+}
+
+.App .Posters .Item {
+    padding: 10px 0px;
+    border-bottom: 1px solid #eee;
+}
+
+.App .Posters .Item span {
+    font-size: 12px;
+    color: #555;
+}
+
+.App .Posters .Item span button {
+    border: 0;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #0c9cf8;
+    margin-left: 10px;
+}
+
+.App .Posters .Nav span,
+.App .Posters .Item span {
+    width: 20%;
+}
+
+.App .Touch {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.App .Touch .Box {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 40px;
+    margin: 0 auto;
+    margin-top: 20vh;
+    display: table;
+}
+
+.App .Touch .Box .Button {
+    display: table;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.App .Touch .Box .Button button {
+    float: right;
+    margin-left: 20px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 0 10px;
+    background-color: #fff;
+    height: 30px;
+}
+
+.App .Touch .Title {
+    margin-bottom: 40px;
+    display: block;
+}
+
+.App .Touch .CreateName input {
+    display: block;
+    width: 400px;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-indent: 10px;
+}
+
+.App .Touch .UpdateImage {
+    width: 410px;
+    display: table;
+}
+
+.App .Touch .UpdateImage #Select {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+}
+
+.App .Touch .UpdateImage #Select input {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+}
+
+.App .Touch .UpdateImage .Button button:nth-child(1) {
+    margin-right: 10px;
+}
+
+.App .Touch .UpdateImage #Select span {
+    font-size: 40px;
+    color: #555;
+    width: 70px;
+    text-align: center;
+    line-height: 70px;
+    display: block;
+}
+
+.App .Touch .UpdateImage .Value {
+    width: 72px;
+    height: 72px;
+    float: left;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.App .Touch .UpdateImage .Value img {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.App .Touch .Qrcode #qrcode {
+    width: 256px;
+    height: 270px;
+}
+
+.App .Touch .Qrcode .Tips {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+}
+
+.App .Touch .View .ViewQrcode {
+    width: 256px;
+    height: 270px;
+}
+
+.App .Touch .View .Tips {
+    color: #999;
+    margin-top: 20px;
+}

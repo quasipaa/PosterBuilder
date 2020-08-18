@@ -1,0 +1,234 @@
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>海报生成</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="/static/manage.css" type="text/css">
+    <script src="/static/qrcode.js"></script>
+    <script src="/static/manage.js"></script>
+</head>
+<body>
+<div class="App">
+    
+    <!--
+    头部
+    -->
+    <div class="Header">
+        <button @click="create">
+            新建海报
+        </button>
+        <div class="Title">
+            海报列表
+        </div>
+    </div>
+    
+    <!--
+    海报列表
+    -->
+    <div class="Posters">
+        
+        <!--
+        海报列表头部
+        -->
+        <div class="Nav">
+            <span>名称</span>
+            <span>详情</span>
+            <span>图片数</span>
+            <span>创建时间</span>
+            <span>操作</span>
+        </div>
+        
+        <!--
+        无海报提示
+        -->
+        <div 
+            class="Unposter" 
+            v-show="Values.length == 0"
+        >无海报......</div>
+        
+        <!--
+        海报列表项
+        -->
+        <div 
+            class="Item" 
+            v-for="(value, i) of Values" 
+            :key="value.uid + i"
+        >
+            <span>{{ value.poster.name }}</span>
+            <span>{{ value.poster.detil || '无' }}</span>
+            <span>{{ value.poster.images.length }}</span>
+            <span>{{ (new Date(value.poster.date)).toLocaleDateString() }}</span>
+            
+            <!--
+            控制项
+            -->
+            <span>
+                <button @click="view(value.uid)">
+                    查看
+                </button>
+                <button @click="remove(value.uid)">
+                    删除
+                </button>
+            </span>
+        </div>
+    </div>
+    
+    <!--
+    弹出窗口
+    -->
+    <div 
+        class="Touch" 
+        v-show="TouchShow"
+    >
+        
+        <!--
+        创建基本信息
+        -->
+        <div 
+            class="CreateName Box" 
+            v-show="CreateName"
+        >
+            <div class="Title">
+                创建基本信息
+            </div>
+            
+            <!--
+            信息输入框
+            -->
+            <input 
+                type="text" 
+                placeholder="请输入海报名称 (必填)" 
+                v-model="Generation.name"
+            />
+            <input 
+                type="text" 
+                placeholder="请输入海报说明" 
+                v-model="Generation.detil"
+            />
+            
+            <!--
+            控制窗
+            -->
+            <div class="Button">
+                <button @click="close">
+                    取消
+                </button>
+                <button @click="update">
+                    下一步
+                </button>
+            </div>
+        </div>
+        
+        <!--
+        上传图片
+        -->
+        <div 
+            class="UpdateImage Box" 
+            v-show="UpdateImage"
+        >
+            <div class="Title">
+                上传海报图片
+            </div>
+            
+            <!--
+            图片列表
+            -->
+            <div class="Images">
+                
+                <!--
+                图片预览项
+                -->
+                <div 
+                    class="Value" 
+                    v-for="(value, i) of Generation.images"
+                    :key="value.name + i"
+                ><img :src="intoUrl(value)"/></div>
+                
+                <!--
+                图片上传按钮
+                -->
+                <div 
+                    class="Value" 
+                    id="Select"
+                >
+                    <input 
+                        id="image"
+                        type="file"
+                        @change="fileChange"
+                    /><span>+</span>
+                </div>
+            </div>
+            
+            <!--
+            控制窗
+            -->
+            <div class="Button">
+                <button @click="close">
+                    取消
+                </button>
+                <button @click="qrcode">
+                    下一步
+                </button>
+            </div>
+        </div>
+        
+        <!--
+        二维码
+        -->
+        <div 
+            class="Qrcode Box" 
+            v-show="QrcodeShow"
+        >
+            <div class="Title">
+                生成二维码
+            </div>
+            <div id="qrcode"></div>
+            <div class="Tips">
+                鼠标右键二维码以复制或者保存
+            </div>
+            
+            <!--
+            控制窗
+            -->
+            <div class="Button">
+                <button @click="close">
+                    取消
+                </button>
+                <button @click="done">
+                    完成
+                </button>
+            </div>
+        </div>
+        
+        <!--
+        查看二维码
+        -->
+        <div 
+            class="View Box" 
+            v-show="ViewShow"
+        >
+            <div class="Title">
+                查看二维码
+            </div>
+            <div id="ViewQrcode"></div>
+            <div class="Tips">
+                使用微信扫描二维码查看海报页面</br>
+                或者使用鼠标右键二维码以复制或者保存
+            </div>
+        
+            <!--
+            控制窗
+            -->
+            <div class="Button">
+                <button @click="
+                    ViewShow = false;
+                    TouchShow = false;
+                ">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

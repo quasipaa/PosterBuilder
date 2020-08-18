@@ -1,0 +1,26 @@
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>{{.title}}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/static/index.css" type="text/css">
+    <script src="/static/index.js"></script>
+</head>
+<body>
+    <div class="Poster">
+        <div class="Box">
+            {{range .images}}
+            <img src="/AppData/{{ . }}"/>
+            {{end}}
+        </div>
+        <div class="Page">
+            <span id="Index">1</span>
+            <span id="Count">0</span>
+        </div>
+        <div class="Tips">
+            左右滑动翻页
+        </div>
+    </div>
+</body>
+</html>
