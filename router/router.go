@@ -14,8 +14,8 @@ func Middleware(model *database.Model, appdata string) func(ctx iris.Context) {
 }
 
 func InternalServerError(ctx iris.Context) {
-	ctx.StatusCode(400)
-	ctx.Writef("")
+    ctx.StatusCode(400)
+    ctx.Writef("")
 }
 
 func AssertInternalServerError(err error) {

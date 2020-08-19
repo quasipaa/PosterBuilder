@@ -7,12 +7,12 @@ import (
 
 func Poster(ctx iris.Context) {
     model := ctx.Values().Get("Model").(*database.Model)
-	uid := ctx.Params().GetString("id")
-	poster, err := model.Query(uid)
-	AssertInternalServerError(err)
-	ctx.ViewData("images", poster.Images)
-	ctx.ViewData("title", poster.Name)
-	ctx.View("index.htm")
+    uid := ctx.Params().GetString("id")
+    poster, err := model.Query(uid)
+    AssertInternalServerError(err)
+    ctx.ViewData("images", poster.Images)
+    ctx.ViewData("title", poster.Name)
+    ctx.View("index.htm")
 }
 
 func Posters(ctx iris.Context) {

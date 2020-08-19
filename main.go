@@ -10,11 +10,11 @@ import (
 func main() {
     conf := command.Configure{}
     (&conf).Parse()
-	app := iris.Default()
+    app := iris.Default()
     model := database.New(conf.Db)
     app.HandleDir("/AppData", conf.AppData)
     app.HandleDir("/static", "./views/static")
-	app.RegisterView(iris.HTML("./views", ".htm"))
+    app.RegisterView(iris.HTML("./views", ".htm"))
     app.UseGlobal(router.Middleware(&model, conf.AppData))
     app.OnErrorCode(iris.StatusInternalServerError, router.InternalServerError)
     app.Delete("/poster/{id:string}", router.PosterRemove)
@@ -23,5 +23,5 @@ func main() {
     app.Get("/posters", router.Posters)
     app.Post("/upload", router.Upload)
     app.Get("/manage", router.Manage)
-	app.Listen(":" + conf.Port)
+    app.Listen(":" + conf.Port)
 }
